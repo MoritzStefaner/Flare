@@ -31,10 +31,8 @@ OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
 WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
 OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOURCE CODE, EVEN IF
 ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-*/
-
+ */
 package com.adobe.serialization.json {
-
 	/**
 	 * This class provides encoding and decoding of the JSON format.
 	 *
@@ -46,11 +44,9 @@ package com.adobe.serialization.json {
 	 *		// read a JSON string into an internal object
 	 *		var myObject:Object = JSON.decode( jsonString );
 	 *	</code>
-       * @private
+	 * @private
 	 */
 	public class JSON {
-	
-	
 		/**
 		 * Encodes a object into a JSON string.
 		 *
@@ -60,13 +56,11 @@ package com.adobe.serialization.json {
 		 * @playerversion Flash 8.5
 		 * @tiptext
 		 */
-		public static function encode( o:Object ):String {
-			
-			var encoder:JSONEncoder = new JSONEncoder( o );
+		public static function encode(o : Object) : String {
+			var encoder : JSONEncoder = new JSONEncoder(o);
 			return encoder.getString();
-		
 		}
-		
+
 		/**
 		 * Decodes a JSON string into a native object.
 		 * 
@@ -77,13 +71,9 @@ package com.adobe.serialization.json {
 		 * @playerversion Flash 8.5
 		 * @tiptext
 		 */
-		public static function decode( s:String ):Object {
-			
-			var decoder:JSONDecoder = new JSONDecoder( s )
-			return decoder.getObject();
-			
+		public static function decode(s : String) : Object {
+			var decoder : JSONDecoder = new JSONDecoder(s);
+			return decoder.getValue();
 		}
-	
 	}
-
 }
