@@ -20,11 +20,11 @@ package flare.physics
 		 */
 		public function apply(sim:Simulation):void
 		{
-			var s:Spring, p1:Particle, p2:Particle;
+			var s:flare.physics.Spring, p1:Particle, p2:Particle;
 			var dx:Number, dy:Number, dn:Number, dd:Number, k:Number, fx:Number, fy:Number;
 			
 			for (var i:uint=0; i<sim.springs.length; ++i) {
-				s = Spring(sim.springs[i]);
+				s = flare.physics.Spring(sim.springs[i]);
 				p1 = s.p1;
 				p2 = s.p2;				
 				dx = p1.x - p2.x;

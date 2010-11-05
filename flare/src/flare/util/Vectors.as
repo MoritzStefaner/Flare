@@ -141,7 +141,7 @@ package flare.util
 		 * @param len the number of values to copy
 		 * @return the target vector containing the copied values
 		 */
-		public static function copy(a:Vector.<Object>, b:Vector.<Object>=null, a0:int=0, b0:int=0, len:int=-1) : Vector.<Object> {
+		public static function copy(a:Vector.<Object>, b:Vector.<Object> = null, a0:int=0, b0:int=0, len:int=-1) : Vector.<Object> {
 			len = (len < 0 ? a.length : len);
 			if (b==null) {
 				b = new Vector.<Object>(b0+len);
@@ -197,8 +197,8 @@ package flare.util
 		 * @param len the number of values to copy
 		 * @return the target vector containing the copied values
 		 */
-		public static function copyFromArray(a:Array, b:Vector.<Object>=null, a0:int=0, b0:int=0, len:int=-1) : Vector.<Object> {
-			len = (len < 0 ? a.length : len);
+		public static function copyFromArray(a:Array, b:Vector.<Object> = null, a0:int=0, b0:int=0, len:int=-1) : Vector.<Object> {
+			len = (len < 0 ? a.length : len); 
 			if (b==null) {
 				b = new Vector.<Object>(b0+len);
 			} else {

@@ -136,7 +136,7 @@ package flare.vis.operator.layout
 		protected function init():void
 		{
 			var data:Data = visualization.data, o:Object;
-			var p:Particle, s:Spring, n:NodeSprite, e:EdgeSprite;
+			var p:Particle, s:flare.physics.Spring, n:NodeSprite, e:EdgeSprite;
 			
 			// initialize all simulation entries
 			for each (n in data.nodes) {
@@ -216,7 +216,7 @@ package flare.vis.operator.layout
 		 * assignment.
 		 */
 		public var tension:Function = function(e:EdgeSprite):Number {
-			var s:Spring = Spring(e.props.spring);
+			var s:flare.physics.Spring = flare.physics.Spring(e.props.spring);
 			var n:Number = Math.max(s.p1.degree, s.p2.degree);
 			return _tension / Math.sqrt(n);
 		}
@@ -228,7 +228,7 @@ package flare.vis.operator.layout
 		 * damping assignment.
 		 */
 		public var damping:Function = function(e:EdgeSprite):Number {
-			return Spring(e.props.spring).tension / 10;
+			return flare.physics.Spring(e.props.spring).tension / 10;
 		}
 		
 	} // end of class ForceDirectedLayout

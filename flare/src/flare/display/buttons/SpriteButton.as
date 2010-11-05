@@ -79,7 +79,7 @@ package flare.display.buttons
 		 */
 		protected var buttonPhase:String;
 		
-		protected var renderer : BitmapRenderer = new BitmapRenderer();;
+		protected var renderer : BitmapRenderer = new BitmapRenderer();
 		
 		/**
 		 * Backing variable for <code>verticalPadding</code> property.
