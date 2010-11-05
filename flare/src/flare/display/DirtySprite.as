@@ -268,8 +268,8 @@ package flare.display
 		/** Convert the current polar coordinates (origin, radius and angle) 
 		 * to cartesian coordinates. */
 		protected function applyPolarCoordinates():void {
-			super.x =  _radius * Math.cos(_angle) + _origin.x;
-			super.y = -_radius * Math.sin(_angle) + _origin.y;
+			super.x =  radius * Math.cos(angle) + origin.x;
+			super.y = -radius * Math.sin(angle) + origin.y;
 		}
 		
 	} // end of class DirtySprite
