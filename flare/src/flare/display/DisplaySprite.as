@@ -373,7 +373,7 @@ package flare.display
 			_backgroundPadding 				= null;
 				
 			// TODO: Externalize this configuration via the Labeler.
-			
+			/*
 			_backgroundBorder 				= true;
 			_backgroundBorderColor 			= 0xff9a9a9a;
 			_backgroundFill 				= true;
@@ -392,6 +392,8 @@ package flare.display
 			_backgroundFillGradient 		= gradient;
 			
 			_backgroundPadding 				= new Padding( 2, 2, 2, 2 );
+			 * 
+			 */
 		}
 		
 		// -- Public methods -----------------------------------
