@@ -11,6 +11,8 @@ package flare.vis.data.render
 		public static const TRIANGLE:String = "triangle";
 		/** Indicates that two lines should be used to draw the arrow head. */
 		public static const LINES:String = "lines";
+		/** Indicates that two lines should be used to draw the arrow head. */
+		public static const TAPERED:String = "tapered";
 		
 		/**
 		 * This constructor will throw an error, as this is an abstract class. 
