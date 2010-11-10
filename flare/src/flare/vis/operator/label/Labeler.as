@@ -321,10 +321,9 @@ package flare.vis.operator.label {
 				return null;
 			} else if (!label) {
 				label = new TextSprite("", null, textMode);
-				_access.setValue(d, label);
-
 				label.applyFormat(textFormat);
-
+				_access.setValue(d, label);
+				
 				setLabelText(computeLabelText(d), label);
 				label.visible = visible && getLabelText(label);
 
