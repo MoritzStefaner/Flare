@@ -1,7 +1,6 @@
 package flare.vis.controls
 {
 	import flare.vis.events.SelectionEvent;
-	
 	import flash.display.DisplayObject;
 	import flash.display.DisplayObjectContainer;
 	import flash.display.Graphics;
@@ -9,6 +8,7 @@ package flare.vis.controls
 	import flash.display.Shape;
 	import flash.display.Stage;
 	import flash.events.Event;
+	import flash.events.KeyboardEvent;
 	import flash.events.MouseEvent;
 	import flash.geom.Rectangle;
 	import flash.utils.Dictionary;
@@ -22,6 +22,7 @@ package flare.vis.controls
 	 */
 	public class SelectionControl extends Control
 	{
+		private static var SHIFT_DOWN : Boolean;
 		protected var _r:Rectangle = new Rectangle();
 		protected var _drag:Boolean = false;
 		protected var _shape:Shape = new Shape();
@@ -121,6 +122,8 @@ package flare.vis.controls
 				_object.removeEventListener(Event.REMOVED_FROM_STAGE, onRemove);
 			}
 			_hit = null;
+			_stage.removeEventListener(KeyboardEvent.KEY_DOWN, keyPressed);
+			_stage.removeEventListener(KeyboardEvent.KEY_UP, keyReleased);
 			return super.detach();
 		}
 		
@@ -129,6 +132,16 @@ package flare.vis.controls
 			_stage = _object.stage;
 			if (_hit == null) _hit = _stage;
 			_hit.addEventListener(MouseEvent.MOUSE_DOWN, mouseDown);
+			_stage.addEventListener(KeyboardEvent.KEY_DOWN, keyPressed);
+			_stage.addEventListener(KeyboardEvent.KEY_UP, keyReleased);
+		}
+
+		private function keyReleased(event : KeyboardEvent) : void {
+			if (event.keyCode == 16) SHIFT_DOWN = false;
+		}
+
+		private function keyPressed(event : KeyboardEvent) : void {
+			if (event.keyCode == 16) SHIFT_DOWN = true;
 		}
 		
 		protected function onRemove(evt:Event=null):void
@@ -244,6 +257,9 @@ package flare.vis.controls
 		}
 		
 		protected function deselect(d:DisplayObject):void {
+			// no deselection if shift is pressed
+			if(SHIFT_DOWN) return;
+			
 			delete _sel[d];
 			if (_rem == null)
 				if (_rem0 == null) {
